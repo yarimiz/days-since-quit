@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Days Since 05/02/2025</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .container h1 {
+      margin-bottom: 20px;
+    }
+    .days {
+      font-size: 4rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Days Since 05/02/2025</h1>
+    <div class="days" id="days">0</div>
+  </div>
+
+  <script>
+    function updateDays() {
+      // Create a Date object for February 5, 2025.
+      // Note: In JavaScript, months are 0-indexed (0 = January, 1 = February, …)
+      const startDate = new Date(2025, 1, 5); // 2025-02-05
+      const now = new Date();
+
+      // Calculate the time difference in milliseconds
+      const diffTime = now - startDate;
+      // Convert milliseconds to days (rounded down)
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+      // Display the result; if the start date is in the future, diffDays will be negative.
+      document.getElementById('days').textContent = diffDays;
+    }
+
+    // Update the displayed days immediately
+    updateDays();
+    // Optionally update every minute in case the page remains open
+    setInterval(updateDays, 60000);
+  </script>
+</body>
+</html>
